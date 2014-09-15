@@ -10,23 +10,22 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".MyActivity">
 
-
     <com.wrapp.floatlabelededittext.FloatLabeledEditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         float:fletInputType="number"
-        float:fletFloatingHint="Phone number"
+        float:fletFloatingHint="@string/textinput_number"
         android:id="@+id/editTextNumber"/>
     <com.wrapp.floatlabelededittext.FloatLabeledEditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        float:fletFloatingHint="text just before code"
+        float:fletFloatingHint="@string/textinput_before"
         android:id="@+id/editTextBefore"/>
     <com.wrapp.floatlabelededittext.FloatLabeledEditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        float:fletFloatingHint="text just after code"
+        float:fletFloatingHint="@string/textinput_after"
         android:id="@+id/editTextAfter"/>
 
 </LinearLayout>

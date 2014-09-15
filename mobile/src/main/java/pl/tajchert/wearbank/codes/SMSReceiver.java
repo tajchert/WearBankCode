@@ -41,11 +41,18 @@ public class SMSReceiver extends BroadcastReceiver {
                         return;
                     }
                     String message = currentMessage.getDisplayMessageBody();
-                    Pattern p = Pattern.compile(before + "(.*?)" + after);
-                    Matcher m = p.matcher(message);
-                    if (m.find()) {
-                        makeNotification(context, number, m.group(1));
+                    if(!before.equals("") && !after.equals("")){
+                        Pattern p = Pattern.compile(before + "(.*?)" + after);
+                        Matcher m = p.matcher(message);
+                        if (m.find()) {
+                            makeNotification(context, number, m.group(1));
+                        }
+                    } else if( before.equals("") && !after.equals("")){
+                        makeNotification(context, number, message.substring(0, message.indexOf(after)));
+                    } else if( !before.equals("") && after.equals("")){
+                        makeNotification(context, number, message.substring((message.indexOf(before)+before.length()), message.length()));
                     }
+
                 }
             }
         } catch (Exception e) {
