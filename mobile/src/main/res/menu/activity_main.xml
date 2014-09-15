@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="pl.tajchert.wearbank.codes.MyActivity" >
+
+    <item android:id="@+id/action_help"
+          android:icon="@drawable/ic_action_help"
+          android:title="@string/action_help"
+          android:showAsAction="ifRoom"  />
+    <item android:id="@+id/action_save"
+        android:icon="@drawable/ic_action_ok"
+        android:title="@string/action_save"
+        android:showAsAction="always"  />
+
+</menu>
