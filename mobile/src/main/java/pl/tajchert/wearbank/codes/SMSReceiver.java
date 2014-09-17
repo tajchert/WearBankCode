@@ -5,9 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationManagerCompat;
-import android.telephony.SmsManager;
 import android.telephony.SmsMessage;
 import android.util.Log;
 
@@ -20,10 +17,6 @@ public class SMSReceiver extends BroadcastReceiver {
     private String before;
     private String after;
 
-    private int notificationId = 256;
-
-    // Get the object of SmsManager
-    final SmsManager sms = SmsManager.getDefault();
 
     public void onReceive(Context context, Intent intent) {
         final Bundle bundle = intent.getExtras();
@@ -52,7 +45,6 @@ public class SMSReceiver extends BroadcastReceiver {
                     } else if( !before.equals("") && after.equals("")){
                         makeNotification(context, number, message.substring((message.indexOf(before)+before.length()), message.length()));
                     }
-
                 }
             }
         } catch (Exception e) {
@@ -61,13 +53,8 @@ public class SMSReceiver extends BroadcastReceiver {
     }
 
     private void makeNotification(Context context, String number, String code){
-        NotificationCompat.Builder notificationBuilder =
-                new NotificationCompat.Builder(context)
-                        .setSmallIcon(R.drawable.ic_launcher)
-                        .setContentTitle(number + "")
-                        .setContentText("Code: " + code);
-        NotificationManagerCompat notificationManager =
-                NotificationManagerCompat.from(context);
-        notificationManager.notify(notificationId, notificationBuilder.build());
+        Intent mIntent = new Intent(context, UpdateService.class);
+        mIntent.putExtra(Tools.SERVICE_KEY_TEXT, code);
+        context.startService(mIntent);
     }
 }

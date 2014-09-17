@@ -1,31 +1,53 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:float="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".MyActivity">
 
-    <com.wrapp.floatlabelededittext.FloatLabeledEditText
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        float:fletInputType="number"
-        float:fletFloatingHint="@string/textinput_number"
-        android:id="@+id/editTextNumber"/>
-    <com.wrapp.floatlabelededittext.FloatLabeledEditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        float:fletFloatingHint="@string/textinput_before"
-        android:id="@+id/editTextBefore"/>
-    <com.wrapp.floatlabelededittext.FloatLabeledEditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        float:fletFloatingHint="@string/textinput_after"
-        android:id="@+id/editTextAfter"/>
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="340dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="120dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/sample_text" />
+
+            <com.wrapp.floatlabelededittext.FloatLabeledEditText
+                android:id="@+id/editTextNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                float:fletFloatingHint="@string/textinput_number"
+                float:fletInputType="number" />
+
+            <com.wrapp.floatlabelededittext.FloatLabeledEditText
+                android:id="@+id/editTextBefore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                float:fletFloatingHint="@string/textinput_before" />
+
+            <com.wrapp.floatlabelededittext.FloatLabeledEditText
+                android:id="@+id/editTextAfter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                float:fletFloatingHint="@string/textinput_after" />
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
